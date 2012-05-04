@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+	<groupId>com.handstandtech</groupId>
+	<artifactId>foursquare-api</artifactId>
+	<packaging>jar</packaging>
+	<version>0.9.1</version>
+	<name>Foursquare API</name>
+	<properties>
+		<target.jdk>1.6</target.jdk>
+		<project.encoding>UTF-8</project.encoding>
+
+		<restclient.version>0.9.1</restclient.version>
+		<persistence-api.version>1.0.2</persistence-api.version>
+		<json.version>20090211</json.version>
+		<servlet-api.version>2.5</servlet-api.version>
+		<gson.version>1.7.1</gson.version>
+		<maven-compiler-plugin.version>2.3.2</maven-compiler-plugin.version>
+	</properties>
+	<dependencies>
+		<!-- General dependencies for standard applications -->
+		<dependency>
+			<groupId>com.handstandtech</groupId>
+			<artifactId>restclient-server</artifactId>
+			<version>${restclient.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>org.json</groupId>
+			<artifactId>json</artifactId>
+			<version>${json.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>javax.servlet</groupId>
+			<artifactId>servlet-api</artifactId>
+			<scope>provided</scope>
+			<version>${servlet-api.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>com.google.code.gson</groupId>
+			<artifactId>gson</artifactId>
+			<version>${gson.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>javax.persistence</groupId>
+			<artifactId>persistence-api</artifactId>
+			<version>${persistence-api.version}</version>
+		</dependency>
+	</dependencies>
+	<repositories>
+		<repository>
+			<id>maven-central</id>
+			<url>http://repo1.maven.org/maven2/</url>
+		</repository>
+		<repository>
+			<id>restclient</id>
+			<url>https://github.com/handstandtech/RESTClient/raw/master/mavenrepo</url>
+		</repository>
+	</repositories>
+	<build>
+		<plugins>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-compiler-plugin</artifactId>
+				<version>${maven-compiler-plugin.version}</version>
+				<configuration>
+					<source>${target.jdk}</source>
+					<target>${target.jdk}</target>
+				</configuration>
+			</plugin>
+		</plugins>
+		<outputDirectory>target</outputDirectory>
+		<directory>mavenrepo/com/handstandtech/${project.artifactId}/${project.version}/</directory>
+	</build>
+</project>

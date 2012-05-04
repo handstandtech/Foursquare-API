@@ -1,0 +1,9 @@
+.DS_Store
+
+target
+
+.classpath
+.settings
+.project
+
+maven-archiver
