@@ -11,12 +11,16 @@
 		<target.jdk>1.6</target.jdk>
 		<project.encoding>UTF-8</project.encoding>
 
+		<!-- Dependencies -->
 		<restclient.version>0.9.1</restclient.version>
 		<persistence-api.version>1.0.2</persistence-api.version>
 		<json.version>20090211</json.version>
 		<servlet-api.version>2.5</servlet-api.version>
 		<gson.version>1.7.1</gson.version>
+		
+		<!-- Plugins -->
 		<maven-compiler-plugin.version>2.3.2</maven-compiler-plugin.version>
+		<maven-source-plugin.version>2.1.2</maven-source-plugin.version>
 	</properties>
 	<dependencies>
 		<!-- General dependencies for standard applications -->
@@ -68,7 +72,36 @@
 					<target>${target.jdk}</target>
 				</configuration>
 			</plugin>
+			<!-- Attaching sources and javadoc -->
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-source-plugin</artifactId>
+				<version>${maven-source-plugin.version}</version>
+				<executions>
+					<execution>
+						<!-- This attaches the source files to the JAR for us instead of using 
+							the "Resources" Plugin. -->
+						<id>attach-sources</id>
+						<goals>
+							<goal>jar</goal>
+						</goals>
+					</execution>
+				</executions>
+			</plugin>
 		</plugins>
+			<resources>
+				<resource>
+					<directory>src/main/java</directory>
+					<includes>
+						<include>**/*.java</include>
+						<include>**/*.css</include>
+						<include>**/*.png</include>
+						<include>**/*.gif</include>
+						<include>**/*.jpg</include>
+						<include>**/*.xml</include>
+					</includes>
+				</resource>
+			</resources>
 		<outputDirectory>target</outputDirectory>
 		<directory>mavenrepo/com/handstandtech/${project.artifactId}/${project.version}/</directory>
 	</build>
