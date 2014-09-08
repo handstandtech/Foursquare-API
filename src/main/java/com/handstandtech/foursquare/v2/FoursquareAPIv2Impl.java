@@ -78,7 +78,7 @@ public class FoursquareAPIv2Impl implements FoursquareAPIv2 {
 
 	private Map<String, String> createBaseParams() {
 		Map<String, String> params = new HashMap<String, String>();
-		params.put("v", "20120501"); // Last Updated May 1st
+		params.put("v", "20140501"); // Last Updated May 1st
 		params.put("oauth_token", oauth_token);
 		return params;
 	}

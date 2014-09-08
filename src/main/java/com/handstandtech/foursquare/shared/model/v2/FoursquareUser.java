@@ -1,12 +1,14 @@
 package com.handstandtech.foursquare.shared.model.v2;
 
-import java.io.Serializable;
-import java.util.Date;
+import lombok.Data;
+import lombok.NoArgsConstructor;
 
 import javax.persistence.Embedded;
 import javax.persistence.Id;
 import javax.persistence.PrePersist;
 import javax.persistence.Transient;
+import java.io.Serializable;
+import java.util.Date;
 
 public class FoursquareUser implements Serializable {
 
@@ -19,7 +21,10 @@ public class FoursquareUser implements Serializable {
 	private String id;
 	private String firstName;
 	private String lastName;
-	private String photo;
+
+    @Embedded
+	private FoursquareImage photo;
+
 	private String gender;
 	private String homeCity;
 	private String type;
@@ -52,6 +57,14 @@ public class FoursquareUser implements Serializable {
 	public FoursquareUser() {
 
 	}
+
+    @Data
+    @NoArgsConstructor
+    public static class FoursquareImage implements Serializable {
+
+        private String prefix;
+        private String suffix;
+    }
 
 	public static class Contact implements Serializable {
 
@@ -267,11 +280,11 @@ public class FoursquareUser implements Serializable {
 		this.lastName = lastName;
 	}
 
-	public String getPhoto() {
+	public FoursquareImage getPhoto() {
 		return photo;
 	}
 
-	public void setPhoto(String photo) {
+	public void setPhoto(FoursquareImage photo) {
 		this.photo = photo;
 	}
 

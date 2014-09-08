@@ -12,6 +12,7 @@
 		<project.encoding>UTF-8</project.encoding>
 
 		<!-- Dependencies -->
+        <lombok.version>1.14.4</lombok.version>
 		<restclient.version>0.9.1</restclient.version>
 		<persistence-api.version>1.0.2</persistence-api.version>
 		<json.version>20090211</json.version>
@@ -23,6 +24,13 @@
 		<maven-source-plugin.version>2.1.2</maven-source-plugin.version>
 	</properties>
 	<dependencies>
+
+        <dependency>
+            <groupId>org.projectlombok</groupId>
+            <artifactId>lombok</artifactId>
+            <version>${lombok.version}</version>
+        </dependency>
+
 		<!-- General dependencies for standard applications -->
 		<dependency>
 			<groupId>com.handstandtech</groupId>
